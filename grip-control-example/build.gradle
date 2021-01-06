@@ -1,0 +1,40 @@
+plugins {
+    id 'org.springframework.boot' version '2.3.4.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+    id 'java'
+}
+
+group 'org.kvn.codes'
+version '1.0.0'
+
+repositories {
+    mavenCentral()
+    maven {
+        url('https://jitpack.io')
+    }
+    maven {
+        url('https://packages.confluent.io/maven/')
+    }
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    // grip dependencies
+    compile(group: 'org.fanout', name: 'gripcontrol', version: '1.1.1') {
+        exclude group: 'org.slf4j'
+    }
+    // json
+    compile(group: 'com.github.everit-org.json-schema', name: 'org.everit.json.schema', version: '1.12.1')
+    compile(group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.11.0')
+    // kafka client
+    compile(group: 'org.apache.kafka', name: 'kafka-clients', version: '2.5.0')
+    compile(group: 'io.confluent', name: 'kafka-json-schema-serializer', version: '5.5.0')
+    // springboot dependencies
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-logging'
+    implementation 'ch.qos.logback:logback-classic'
+    // lombok
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+}
