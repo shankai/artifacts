@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option java_package = "me.kvn.codes.service";
+option java_outer_classname = "VehicleServiceProtos";
+
+option objc_class_prefix = "HLW";
+option java_multiple_files = true;
+option java_generic_services = true;
+
+service VehicleService {
+  rpc running(Vehicle) returns (Status) {}
+}
+
+message Status {
+  bool status = 1;
+  string vehicleId = 2;
+}
+
+message Vehicle {
+  string id = 1;
+}
+
