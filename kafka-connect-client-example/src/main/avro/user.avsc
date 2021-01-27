@@ -1,0 +1,25 @@
+{
+  "namespace": "com.kvn.codes.kafka.avro",
+  "type": "record",
+  "name": "User",
+  "fields": [
+    {
+      "name": "name",
+      "type": "string"
+    },
+    {
+      "name": "age",
+      "type": [
+        "int",
+        "null"
+      ]
+    },
+    {
+      "name": "color",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  ]
+}
